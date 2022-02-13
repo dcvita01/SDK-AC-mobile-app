@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="HardcodedText">
+
+    <item
+        android:id="@+id/nav_access"
+        android:title="Access control" />
+
+    <item
+        android:id="@+id/nav_working"
+        android:title="Working from home" />
+
+    <item
+        android:id="@+id/nav_hours"
+        android:title="Working hours" />
+
+    <item
+        android:id="@+id/nav_profile"
+        android:title="User profile" />
+
+    <item
+        android:id="@+id/nav_settings"
+        android:title="Settings" />
+
+    <item
+        android:id="@+id/nav_logout"
+        android:title="Sign out" />
+
+</menu>
