@@ -3,11 +3,11 @@
 
     <!--version just for android emulator-->
     <!--string name="server_ip">10.0.2.2</string>
-    <string name="user_id">6202a2b3f63bbf79f5cbabe2</string-->
+    <string name="user_id">62081b03eb4502ac6cce4e87</string-->
 
     <!--version for real android-->
-    <string name="server_ip">192.168.0.152</string>
-    <string name="user_id">620503ec5f2292af73e9b71b</string>
+    <string name="server_ip">192.168.198.232</string>
+    <string name="user_id">62081b03eb4502ac6cce4e87</string>
 
     <!--to toggle the open close button
         of the navigation drawer-->

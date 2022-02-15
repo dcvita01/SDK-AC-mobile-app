@@ -571,16 +571,11 @@ public class WorkingHours extends AppCompatActivity {
 
                 //System.out.println("Today: " + currentDate.toString());
 
-                c.add(Calendar.DATE, -1);
-                Date yesterdayDate = c.getTime();
-                Timestamp yesterdayTimestamp = new Timestamp(c.getTime().getTime());
-                String yesterday = yesterdayTimestamp.toString().substring(8, 10) + "/" + yesterdayTimestamp.toString().substring(5, 7) + "/" + yesterdayTimestamp.toString().substring(0, 4);
-                //System.out.println("Yesterday: " + yesterday);
-
                 Date lastMondayDate = new Date();
-                Boolean isMonday = false;
+                Date yesterdayDate;
+                String yesterday = "";
+                Boolean isMonday = false, setYesterday = false;
                 while(!isMonday) {
-                    c.add(Calendar.DATE, -1);
                     int dayOfWeek = c.get(Calendar.DAY_OF_WEEK);
                     if(dayOfWeek==2) {
                         isMonday = true;
@@ -588,6 +583,14 @@ public class WorkingHours extends AppCompatActivity {
                         Timestamp lastMondayTimestamp = new Timestamp(c.getTime().getTime());
                         String lastMonday = lastMondayTimestamp.toString().substring(8, 10) + "/" + lastMondayTimestamp.toString().substring(5, 7) + "/" + lastMondayTimestamp.toString().substring(0, 4);
                         //System.out.println("Last monday: " + lastMonday);
+                    }
+                    c.add(Calendar.DATE, -1);
+                    if(!setYesterday){
+                        setYesterday=true;
+                        yesterdayDate = c.getTime();
+                        Timestamp yesterdayTimestamp = new Timestamp(c.getTime().getTime());
+                        yesterday = yesterdayTimestamp.toString().substring(8, 10) + "/" + yesterdayTimestamp.toString().substring(5, 7) + "/" + yesterdayTimestamp.toString().substring(0, 4);
+                        //System.out.println("Yesterday: " + yesterday);
                     }
                 }
 
@@ -677,12 +680,13 @@ public class WorkingHours extends AppCompatActivity {
                         //todo save just working periods for one week
                         //if(lastMondayDate<=date1)
                         if(date1.after(lastMondayDate) || date1.equals(lastMondayDate)) {
-                            //MONDAY == 1
+                            System.out.println("lastMondayDate: " + lastMondayDate + "\ndate1: " + date1);
                             Calendar c1 = Calendar.getInstance();
                             c1.setTime(date1);
                             float dayOfWeek = c1.get(Calendar.DAY_OF_WEEK)-1;
-                            if(dayOfWeek<=0)
-                                dayOfWeek+=7;
+                            if(dayOfWeek==0)
+                                dayOfWeek=7;
+                            System.out.println("dayOfWeek: " + dayOfWeek + "\nc1.get(Calendar.DAY_OF_WEEK): " + c1.get(Calendar.DAY_OF_WEEK));
                             dailyWorking.add(dayTotal);
                             barEntriesArrayList.add(new BarEntry(dayOfWeek, Float.parseFloat(dayTotal.substring(0,2)) + Float.parseFloat(dayTotal.substring(3,5))/60));
 

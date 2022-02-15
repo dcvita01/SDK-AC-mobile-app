@@ -515,7 +515,6 @@ public class WorkingFromHome extends AppCompatActivity {
         Button mainButton = (Button) findViewById(R.id.button);
         String currentStatus = mainButton.getText().toString();
 
-
         //String url = "https://ptsv2.com/t/qxgsr-1642335088/post";
         String url = "http://"+  getString(R.string.server_ip) + ":5000/homeWork";
 
